@@ -1,0 +1,14 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: privpod
+spec:
+  containers:
+  - name: priv
+    image: busybox:stable
+    command:
+      - sleep
+    args:
+      - infinity
+    securityContext:
+      privileged: true

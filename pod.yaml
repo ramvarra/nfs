@@ -1,0 +1,24 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: test-nfs
+spec:
+  securityContext:
+    runAsUser: 1000
+    runAsGroup: 1000
+    fsGroup: 1000
+  containers:
+  - name: test-nfs
+    image: busybox:stable
+    command:
+      - sleep
+    args:
+      - infinity
+    volumeMounts:
+      - name: nfs-hack
+        mountPath: "/mnt/nfs-hack"
+  restartPolicy: "Never"
+  volumes:
+    - name: nfs-hack
+      persistentVolumeClaim:
+        claimName: test-pvc

@@ -1,0 +1,7 @@
+storageClass:
+  name: nfs-hack
+  accessModes: ReadWriteMany
+
+nfs:
+  server: truenas.ramvarra.com
+  path: /mnt/kubedata-01/KUBEDATA-01/nfs-hack
